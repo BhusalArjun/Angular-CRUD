@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-12">
+            <form [formGroup]="reactiveForm">
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Name <span class="text-danger">*</span></label>
+                            <input type="text" formControlName="userFirstName" name="userFirstName" class="form-control" placeholder="Name" />
+                            <span *ngIf="submitted || forms['userFirstName'].dirty ||
+                            forms['userFirstName'].touched && forms['userFirstName'].invalid"
+                            class="info-msg text-danger">
+                                <small *ngIf="forms['userFirstName'].errors && 
+                                    forms['userFirstName'].errors?.['required']">
+                                    User First name is required !
+                                </small>
+                                <!-- <small *ngIf="forms['userFirstName'].errors && forms['userFirstName'].errors?.['minlength']">Mobile Number must be at least 10 characters long !</small> -->
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Address <span class="text-danger">*</span></label>
+                            <input type="text" formControlName="address" class="form-control" placeholder="Address" />
+                            <span *ngIf="submitted || forms['address'].dirty ||
+                            forms['address'].touched && forms['address'].invalid"
+                            class="info-msg text-danger">
+                                <small *ngIf="forms['address'].errors && 
+                                    forms['address'].errors?.['required']">
+                                    Address name is required !
+                                </small>
+                                <!-- <small *ngIf="forms['userFirstName'].errors && forms['userFirstName'].errors?.['minlength']">Mobile Number must be at least 10 characters long !</small> -->
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <button class="btn btn-success w-100" (click)="onSubmitForm(reactiveForm)" type="button">Submit Value</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

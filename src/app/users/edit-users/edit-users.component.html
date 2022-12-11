@@ -1,0 +1,84 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Edit User Information</h2>
+    </div>
+  </div>
+  <hr />
+  <div class="row mb-3">
+    <div class="col-sm-12">
+      <form [formGroup]="userForm">
+        <div class="row mb-3">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label>Name: <span class="text-danger">*</span> </label>
+              <input type="text" placeholder="Full Name" formControlName="name" class="form-control"/>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label>Email: <span class="text-danger">*</span> </label>
+              <input type="email" placeholder="E-mail" formControlName="email" class="form-control"/>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label>Password: <span class="text-danger">*</span> </label>
+              <input type="password" placeholder="Password" formControlName="password" class="form-control"/>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label>Mobile Number: <span class="text-danger">*</span> </label>
+              <input type="text" formControlName="mobileNumber" placeholder="Mobile Number" class="form-control"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="row">
+          <div class="col-sm-12">
+            <h2>Contact Details Form</h2>
+            <hr>
+          </div>
+        </div> -->
+        <!-- <ng-container formArrayName="contacts"  *ngFor="let data of getContactForm?.controls; let i = index">
+          <div class="row mb-3" [formGroupName]="i">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Contact Number: <span class="text-danger">*</span> </label>
+                <input type="text" name="mobileNumber" id="mobileNumber" formControlName="mobileNumber" placeholder="Mobile Number" class="form-control" />
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Contact Email: <span class="text-danger">*</span> </label>
+                <input type="text" name="email" id="email" formControlName="email" placeholder="Contact Email" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <span class="badge bg-secondary" *ngIf="getContactForm.length > 1" (click)="deleteContactForm(i)">Delete</span>
+        </ng-container>
+        <div class="row mb-3">
+          <div class="col-sm-12">
+            <span class="badge bg-primary" (click)="addMore()">Add More</span>
+          </div>
+        </div>
+        <br> -->
+        
+        <div class="row mb-3">
+          <div class="col-sm-12">
+            <button (click)="onEditUser(userForm.value)" class="btn btn-success">Edit User</button>
+            <button class="btn btn-info ms-5" (click)="goBack()">Back</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-12">
+            <h1>
+                Template Driven Forms Example
+              </h1>
+              
+              <form #contactForm="ngForm" (ngSubmit)="submit(contactForm.value)">
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input
+                              required
+                              minlength="3"
+                              (change)="onChange($event.target)"
+                              maxlength="10"
+                              [(ngModel)]="data"
+                              name="firstName"
+                              type="text"
+                              #firstName="ngModel"
+                              class="form-control"
+                              id="firstName"
+                            />
+                            <span *ngIf="firstName.touched && !firstName.valid && firstName.errors">
+                                <small class="text-danger" *ngIf="firstName.errors['maxlength']">First Name is maximum 10 character.</small>
+                                <small class="text-danger" *ngIf="firstName.errors && firstName.errors['minlength']">
+                                    First Name is minimum
+                                    {{
+                                      firstName.errors && firstName.errors["minlength"].requiredLength
+                                    }}
+                                    character.
+
+                                </small>
+                                <small class="text-danger" *ngIf="firstName.errors && firstName.errors['required']">
+                                    First Name is required.
+                                </small>
+                            </span>
+                          </div>
+                    </div>
+                </div>
+              
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input
+                              required
+                              ngModel
+                              name="lastName"
+                              type="text"
+                              #lastName="ngModel"
+                              class="form-control"
+                              id="lastName"
+                            />
+                            <span class="text-danger" *ngIf="lastName.touched && !lastName.valid">
+                              Last Name is required.
+                            </span>
+                          </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="remarks">Remarks</label>
+                            <textarea
+                                required
+                                ngModel
+                                #remarks="ngModel"
+                                name="remarks"
+                                id="remarks"
+                                rows="4"
+                                class="form-control"
+                            ></textarea>
+                            <span class="text-danger" *ngIf="remarks.touched && !remarks.valid">
+                                <small>remarks is required.</small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+              <div class="row mb-3">
+                  <div class="col-sm-12">
+                    <button
+                    class="btn btn-primary w-100"
+                    type="submit"
+                    [class.disabled]="!contactForm.valid"
+                  >
+                    Submit
+                  </button>
+                  </div>
+              </div>
+              </form>              
+        </div>
+    </div>
+</div>
